@@ -1,6 +1,43 @@
 @tailwind base;
 
-@import url('https://fonts.googleapis.com/css?display=swap&family={{ replace .Site.Params.textFont " " "+" }}:400,400i,600');
+@font-face {
+  font-family: "ia-writer-duo";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/iAWriterDuoS-Regular.eot") format("OpenType"),
+       url("/iAWriterDuoS-Regular.woff") format("woff"),
+       url("/iAWriterDuoS-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ia-writer-duo";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("/iAWriterDuoS-Bold.eot") format("OpenType"),
+       url("/iAWriterDuoS-Bold.woff") format("woff"),
+       url("/iAWriterDuoS-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ia-writer-duo";
+  font-display: swap;
+  font-style: italic;
+  src: url("/iAWriterDuoS-Italic.eot") format("OpenType"),
+       url("/iAWriterDuoS-Italic.woff") format("woff"),
+       url("/iAWriterDuoS-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ia-writer-duo";
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+  src: url("/iAWriterDuoS-BoldItalic.eot") format("OpenType"),
+       url("/iAWriterDuoS-BoldItalic.woff") format("woff"),
+       url("/iAWriterDuoS-BoldItalic.woff2") format("woff2");
+}
 
 @tailwind components;
 
@@ -8,11 +45,11 @@
 
 :root {
   --accent: {{ with .Site.Params.accentColor }}{{ . }}{{ else }}var(--onyx){{ end }};
-  --serif-text: {{ with .Site.Params.textFont}}{{ . }}{{ else }}theme("fontFamily.serif"){{ end }};
+  --font: "ia-writer-duo";
 }
 
-.font-serif {
-  font-family: var(--serif-text), theme("fontFamily.serif") !important;
+.font-mono {
+  font-family: var(--font), theme("fontFamily.mono") !important;
 }
 
 .mode-dark {
@@ -74,6 +111,9 @@ hr {
   }
   p {
     @apply my-4
+  }
+  figcaption {
+    @apply text-xs font-sans text-gray-500 text-center
   }
   blockquote {
     @screen md {
