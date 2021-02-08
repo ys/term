@@ -78,6 +78,7 @@ module.exports = {
       },
       dark: "#2d2f34",
       darker: "#1F2023"
+      back: "#003E4B",
     },
       fontFamily: {
         display: ['ff-meta-web-pro', 'sans-serif'],
